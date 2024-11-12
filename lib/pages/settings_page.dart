@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
-import '../../../core/widgets/custom_scaffold.dart';
-import '../../../core/widgets/others/svg_widget.dart';
-import '../../../core/widgets/texts/text_widget.dart';
+import '../core/utils.dart';
+import '../core/widgets/cuper_button.dart';
+import '../core/widgets/custom_scaffold.dart';
+import '../core/widgets/others/svg_widget.dart';
+import '../core/widgets/texts/text_widget.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -17,7 +17,7 @@ class _SettingsPageState extends State<SettingsPage> {
   int soundIndex = 0;
   int musicIndex = 0;
 
-  void onSound(bool plus) {
+  void onSound(bool plus) async {
     if (plus) {
       if (soundIndex <= 5) {
         soundIndex++;
@@ -31,10 +31,12 @@ class _SettingsPageState extends State<SettingsPage> {
         return;
       }
     }
+    sound = soundIndex;
+    await saveInt('sound', sound);
     setState(() {});
   }
 
-  void onMusic(bool plus) {
+  void onMusic(bool plus) async {
     if (plus) {
       if (musicIndex <= 5) {
         musicIndex++;
@@ -48,7 +50,16 @@ class _SettingsPageState extends State<SettingsPage> {
         return;
       }
     }
+    music = musicIndex;
+    await saveInt('music', music);
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    soundIndex = sound;
+    musicIndex = music;
   }
 
   @override

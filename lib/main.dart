@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'src/core/utils.dart';
-import 'src/core/config/router.dart';
-import 'src/core/config/themes.dart';
+import 'core/config/router.dart';
+import 'core/config/themes.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
@@ -19,8 +18,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    precacheImages(context);
-
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: theme,
@@ -28,3 +25,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// clouds
+// splash
+// balloon
+// spin
+// spin win page
+// win page
+// loose page
+// music

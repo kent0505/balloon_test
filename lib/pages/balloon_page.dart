@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/custom_scaffold.dart';
+import '../core/widgets/custom_scaffold.dart';
 
 class BalloonPage extends StatelessWidget {
   const BalloonPage({super.key});

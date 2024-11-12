@@ -1,12 +1,12 @@
 import 'package:go_router/go_router.dart';
 
-import '../../features/home/pages/balloon_page.dart';
-import '../../features/home/pages/home_page.dart';
-import '../../features/home/pages/howto_page.dart';
-import '../../features/home/pages/level_page.dart';
-import '../../features/home/pages/settings_page.dart';
-import '../../features/home/pages/spin_page.dart';
-import '../../features/home/pages/splash_page.dart';
+import '../../pages/balloon_page.dart';
+import '../../pages/home_page.dart';
+import '../../pages/howto_page.dart';
+import '../../pages/level_page.dart';
+import '../../pages/settings_page.dart';
+import '../../pages/spin_page.dart';
+import '../../pages/splash_page.dart';
 
 final routerConfig = GoRouter(
   initialLocation: '/',

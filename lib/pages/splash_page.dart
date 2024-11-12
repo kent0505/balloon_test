@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/utils.dart';
-import '../../../core/widgets/others/loading_widget.dart';
-import '../../../core/widgets/custom_scaffold.dart';
+import '../core/utils.dart';
+import '../core/widgets/others/loading_widget.dart';
+import '../core/widgets/custom_scaffold.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

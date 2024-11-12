@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'buttons/cuper_button.dart';
+import 'cuper_button.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
