@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SvgWidget extends StatelessWidget {
-  const SvgWidget(
+class CustomSvg extends StatelessWidget {
+  const CustomSvg(
     this.assetName, {
     super.key,
     this.height,

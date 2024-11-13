@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../blocs/coins/coins_bloc.dart';
 import '../core/utils.dart';
-import '../core/widgets/others/rotated_widget.dart';
-import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/text_widget.dart';
+import '../widgets/rotated_widget.dart';
+import '../widgets/custom_svg.dart';
+import '../widgets/custom_text.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -22,7 +22,7 @@ class _SplashPageState extends State<SplashPage>
   late Animation<double> _widthAnimation;
 
   void load() async {
-    await getData().then((value) {
+    await getPrefsData().then((value) {
       Future.delayed(const Duration(milliseconds: 2400), () {
         if (mounted) {
           context.read<CoinsBloc>().add(GetCoinsEvent());
@@ -177,7 +177,7 @@ class _SplashPageState extends State<SplashPage>
             child: Column(
               children: [
                 const Spacer(flex: 2),
-                const TextWidget('Loading...', fontSize: 32),
+                const CustomText('Loading...', fontSize: 32),
                 const SizedBox(height: 2),
                 Container(
                   height: 44,
@@ -230,7 +230,7 @@ class _SplashPageState extends State<SplashPage>
                                       ),
                                     ),
                                     Center(
-                                      child: TextWidget(
+                                      child: CustomText(
                                         '$percentage%',
                                         fontSize: 22,
                                       ),
@@ -281,7 +281,7 @@ class _Balloon extends StatelessWidget {
               right: 0,
               child: RotatedWidget(
                 degree: -80,
-                child: SvgWidget('assets/balloon.svg'),
+                child: CustomSvg('assets/balloon.svg'),
               ),
             ),
             RotatedWidget(

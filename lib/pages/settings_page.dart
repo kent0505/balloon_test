@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/utils.dart';
-import '../core/widgets/cuper_button.dart';
-import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/text_widget.dart';
+import '../widgets/cup_button.dart';
+import '../widgets/custom_svg.dart';
+import '../widgets/custom_text.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -113,12 +113,12 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Column(
               children: [
                 SizedBox(height: 16 + getTop(context)),
-                const TextWidget(
+                const CustomText(
                   'Settings',
                   fontSize: 44,
                 ),
                 const SizedBox(height: 40),
-                const TextWidget(
+                const CustomText(
                   'Sounds',
                   fontSize: 22,
                 ),
@@ -126,11 +126,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CuperButton(
+                    CupButton(
                       onPressed: () {
                         onSound(false);
                       },
-                      child: const SvgWidget('assets/minus.svg'),
+                      child: const CustomSvg('assets/minus.svg'),
                     ),
                     const SizedBox(width: 20),
                     _Indicator(active: soundIndex >= 1),
@@ -145,16 +145,16 @@ class _SettingsPageState extends State<SettingsPage> {
                     const SizedBox(width: 18),
                     _Indicator(active: soundIndex >= 6),
                     const SizedBox(width: 20),
-                    CuperButton(
+                    CupButton(
                       onPressed: () {
                         onSound(true);
                       },
-                      child: const SvgWidget('assets/plus.svg'),
+                      child: const CustomSvg('assets/plus.svg'),
                     ),
                   ],
                 ),
                 const SizedBox(height: 40),
-                const TextWidget(
+                const CustomText(
                   'Music',
                   fontSize: 22,
                 ),
@@ -162,11 +162,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CuperButton(
+                    CupButton(
                       onPressed: () {
                         onMusic(false);
                       },
-                      child: const SvgWidget('assets/minus.svg'),
+                      child: const CustomSvg('assets/minus.svg'),
                     ),
                     const SizedBox(width: 20),
                     _Indicator(active: musicIndex >= 1),
@@ -181,11 +181,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     const SizedBox(width: 18),
                     _Indicator(active: musicIndex >= 6),
                     const SizedBox(width: 20),
-                    CuperButton(
+                    CupButton(
                       onPressed: () {
                         onMusic(true);
                       },
-                      child: const SvgWidget('assets/plus.svg'),
+                      child: const CustomSvg('assets/plus.svg'),
                     ),
                   ],
                 ),
@@ -195,11 +195,11 @@ class _SettingsPageState extends State<SettingsPage> {
           Positioned(
             top: 20 + getTop(context),
             left: 45,
-            child: CuperButton(
+            child: CupButton(
               onPressed: () {
                 context.pop();
               },
-              child: const SvgWidget('assets/back.svg'),
+              child: const CustomSvg('assets/back.svg'),
             ),
           ),
         ],

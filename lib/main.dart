@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/coins/coins_bloc.dart';
-import 'core/config/router.dart';
-import 'core/config/themes.dart';
+import 'core/router.dart';
+import 'core/themes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,16 +31,14 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => CoinsBloc()),
+        BlocProvider(create: (context) {
+          return CoinsBloc();
+        }),
       ],
       child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        theme: theme,
-        routerConfig: routerConfig,
+        theme: themeData,
+        routerConfig: routerConf,
       ),
     );
   }
 }
-
-// splash
-// clouds

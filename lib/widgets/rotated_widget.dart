@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class RotatedWidget extends StatelessWidget {
   const RotatedWidget({
     super.key,
-    required this.degree,
     required this.child,
+    required this.degree,
   });
 
-  final int degree;
   final Widget child;
+  final int degree;
 
   @override
   Widget build(BuildContext context) {

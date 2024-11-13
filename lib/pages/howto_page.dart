@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../core/widgets/custom_scaffold.dart';
-import '../core/widgets/text_widget.dart';
+import '../widgets/custom_scaffold.dart';
+import '../widgets/custom_text.dart';
 
 class HowtoPage extends StatelessWidget {
   const HowtoPage({super.key});
@@ -30,12 +30,12 @@ class HowtoPage extends StatelessWidget {
             child: const Column(
               children: [
                 Spacer(),
-                TextWidget(
+                CustomText(
                   'How to play',
                   fontSize: 24,
                 ),
                 Spacer(),
-                TextWidget(
+                CustomText(
                   'The essence of the game is that you have to press a button and the balloon increases in size ‘inflates’ up to a certain x-coefficient, we have to manage to release it.',
                   fontSize: 20,
                   maxLines: 4,

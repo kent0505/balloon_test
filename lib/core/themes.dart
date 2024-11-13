@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final theme = ThemeData(
+final themeData = ThemeData(
   useMaterial3: false,
   primarySwatch: Colors.grey,
   fontFamily: 'SF',

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class CuperButton extends StatelessWidget {
-  const CuperButton({
+class CupButton extends StatelessWidget {
+  const CupButton({
     super.key,
     this.onPressed,
     this.padding = 0,

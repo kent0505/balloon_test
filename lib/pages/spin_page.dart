@@ -6,9 +6,9 @@ import 'package:go_router/go_router.dart';
 
 import '../core/utils.dart';
 import '../blocs/coins/coins_bloc.dart';
-import '../core/widgets/cuper_button.dart';
-import '../core/widgets/custom_scaffold.dart';
-import '../core/widgets/others/svg_widget.dart';
+import '../widgets/cup_button.dart';
+import '../widgets/custom_scaffold.dart';
+import '../widgets/custom_svg.dart';
 
 class SpinPage extends StatefulWidget {
   const SpinPage({super.key});
@@ -23,7 +23,7 @@ class _SpinPageState extends State<SpinPage> {
   String asset = '';
   bool canSpin = true;
 
-  List<double> angles = [
+  List<double> anglesList = [
     1, // 200
     2, // 100
     3, // 1000
@@ -38,7 +38,7 @@ class _SpinPageState extends State<SpinPage> {
     14, // 200
   ];
 
-  int getCoins() {
+  int getCoin() {
     asset = '';
     if (angle == 1) return 200;
     if (angle == 2) return 100;
@@ -55,29 +55,29 @@ class _SpinPageState extends State<SpinPage> {
     return 0;
   }
 
-  void getRandom() {
-    int randomIndex = Random().nextInt(angles.length);
+  void getRandomValue() {
+    int randomIndex = Random().nextInt(anglesList.length);
     Future.delayed(
       const Duration(seconds: 3),
       () {
         setState(() {
-          angle = angles[randomIndex];
-          logger(angle);
+          angle = anglesList[randomIndex];
+          print(angle);
         });
       },
     );
   }
 
-  void onSpin() async {
+  void onSpinPressed() async {
     setState(() {
       turns += 5 / 1;
       canSpin = false;
     });
-    getRandom();
+    getRandomValue();
     await Future.delayed(
       const Duration(seconds: 7),
       () async {
-        coins += getCoins();
+        coins += getCoin();
         lastSpin = getTimestamp();
         await saveInt('coins', coins);
         await saveInt('lastSpin', lastSpin);
@@ -86,7 +86,7 @@ class _SpinPageState extends State<SpinPage> {
           () {
             if (mounted) {
               context.read<CoinsBloc>().add(GetCoinsEvent());
-              context.push('/home/spin/spinwin', extra: getCoins());
+              context.push('/home/spin/spinwin', extra: getCoin());
             }
           },
         );
@@ -111,14 +111,14 @@ class _SpinPageState extends State<SpinPage> {
                     duration: const Duration(seconds: 7),
                     turns: turns,
                     curve: Curves.easeInOutCirc,
-                    child: const SvgWidget('assets/spinner2.svg'),
+                    child: const CustomSvg('assets/spinner2.svg'),
                   ),
                 ),
                 const Positioned(
                   left: 0,
                   right: 0,
                   top: 14,
-                  child: SvgWidget('assets/spinner1.svg'),
+                  child: CustomSvg('assets/spinner1.svg'),
                 ),
               ],
             ),
@@ -127,9 +127,9 @@ class _SpinPageState extends State<SpinPage> {
             flex: 2,
             child: canSpin
                 ? Center(
-                    child: CuperButton(
-                      onPressed: onSpin,
-                      child: const SvgWidget('assets/spin.svg'),
+                    child: CupButton(
+                      onPressed: onSpinPressed,
+                      child: const CustomSvg('assets/spin.svg'),
                     ),
                   )
                 : Container(),

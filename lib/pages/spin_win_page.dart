@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/utils.dart';
-import '../core/widgets/cuper_button.dart';
-import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/text_stroke.dart';
+import '../widgets/cup_button.dart';
+import '../widgets/custom_svg.dart';
+import '../widgets/text_stroke.dart';
 
 class SpinWinPage extends StatelessWidget {
   const SpinWinPage({
@@ -20,7 +20,7 @@ class SpinWinPage extends StatelessWidget {
       backgroundColor: const Color(0xff02B4FE),
       body: Stack(
         children: [
-          const SvgWidget(
+          const CustomSvg(
             'assets/win2.svg',
             width: double.infinity,
             height: double.infinity,
@@ -55,16 +55,16 @@ class SpinWinPage extends StatelessWidget {
                       borderColor: const Color(0xff02B4FE),
                     ),
                     const SizedBox(width: 30),
-                    const SvgWidget('assets/coin.svg'),
+                    const CustomSvg('assets/coin.svg'),
                   ],
                 ),
                 const Spacer(),
-                CuperButton(
+                CupButton(
                   onPressed: () {
                     context.pop();
                     context.pop();
                   },
-                  child: const SvgWidget('assets/next.svg'),
+                  child: const CustomSvg('assets/next.svg'),
                 ),
                 const SizedBox(height: 25),
               ],
@@ -73,12 +73,12 @@ class SpinWinPage extends StatelessWidget {
           Positioned(
             top: 20 + getTop(context),
             left: 45,
-            child: CuperButton(
+            child: CupButton(
               onPressed: () {
                 context.pop();
                 context.pop();
               },
-              child: const SvgWidget('assets/back.svg'),
+              child: const CustomSvg('assets/back.svg'),
             ),
           ),
         ],

@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../blocs/coins/coins_bloc.dart';
-import '../core/utils.dart';
-import '../core/widgets/cuper_button.dart';
-import '../core/widgets/custom_scaffold.dart';
-import '../core/widgets/others/svg_widget.dart';
+import '../widgets/cup_button.dart';
+import '../widgets/custom_scaffold.dart';
+import '../widgets/custom_svg.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,30 +17,30 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           const Spacer(),
-          CuperButton(
+          CupButton(
             onPressed: () {
               context.push('/home/level').then((_) {
                 if (context.mounted) {
-                  logger('GET COINS');
+                  print('GET COINS');
                   context.read<CoinsBloc>().add(GetCoinsEvent());
                 }
               });
             },
-            child: const SvgWidget('assets/play.svg'),
+            child: const CustomSvg('assets/play.svg'),
           ),
           const SizedBox(height: 18),
-          CuperButton(
+          CupButton(
             onPressed: () {
               context.push('/home/howto');
             },
-            child: const SvgWidget('assets/howto.svg'),
+            child: const CustomSvg('assets/howto.svg'),
           ),
           const SizedBox(height: 18),
-          CuperButton(
+          CupButton(
             onPressed: () {
               context.push('/home/settings');
             },
-            child: const SvgWidget('assets/settings.svg'),
+            child: const CustomSvg('assets/settings.svg'),
           ),
           const SizedBox(height: 40),
         ],

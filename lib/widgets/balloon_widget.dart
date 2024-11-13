@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../core/widgets/others/rotated_widget.dart';
-import '../core/widgets/others/svg_widget.dart';
+import 'rotated_widget.dart';
+import 'custom_svg.dart';
 
 class BalloonWidget extends StatelessWidget {
   const BalloonWidget({
@@ -24,7 +24,7 @@ class BalloonWidget extends StatelessWidget {
             const Positioned(
               top: 20,
               left: 0,
-              child: SvgWidget('assets/balloon.svg'),
+              child: CustomSvg('assets/balloon.svg'),
             ),
             Positioned(
               top: 0,

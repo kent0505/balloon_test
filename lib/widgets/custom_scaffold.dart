@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../blocs/coins/coins_bloc.dart';
-import '../utils.dart';
-import 'cuper_button.dart';
-import 'others/svg_widget.dart';
+import '../blocs/coins/coins_bloc.dart';
+import '../core/utils.dart';
+import 'cup_button.dart';
+import 'custom_svg.dart';
 import 'text_stroke.dart';
 
 class CustomScaffold extends StatelessWidget {
@@ -78,7 +78,7 @@ class CustomScaffold extends StatelessWidget {
                 width: 132,
                 child: Stack(
                   children: [
-                    const SvgWidget('assets/coins.svg'),
+                    const CustomSvg('assets/coins.svg'),
                     Positioned(
                       top: 10,
                       left: 35,
@@ -107,11 +107,11 @@ class CustomScaffold extends StatelessWidget {
                   return Positioned(
                     bottom: 20,
                     right: 63,
-                    child: CuperButton(
+                    child: CupButton(
                       onPressed: () {
                         context.push('/home/spin');
                       },
-                      child: const SvgWidget('assets/chest.svg'),
+                      child: const CustomSvg('assets/chest.svg'),
                     ),
                   );
                 }
@@ -124,11 +124,11 @@ class CustomScaffold extends StatelessWidget {
             Positioned(
               top: 20 + getTop(context),
               left: 45,
-              child: CuperButton(
+              child: CupButton(
                 onPressed: () {
                   context.pop();
                 },
-                child: const SvgWidget('assets/back.svg'),
+                child: const CustomSvg('assets/back.svg'),
               ),
             ),
         ],

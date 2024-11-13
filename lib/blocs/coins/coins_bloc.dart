@@ -19,7 +19,7 @@ class CoinsBloc extends Bloc<CoinsEvent, CoinsState> {
     GetCoinsEvent event,
     Emitter<CoinsState> emit,
   ) async {
-    await getData();
+    await getPrefsData();
     emit(
       CoinsLoadedState(
         coins: coins,

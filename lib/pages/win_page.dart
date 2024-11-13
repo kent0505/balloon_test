@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/utils.dart';
-import '../core/widgets/cuper_button.dart';
-import '../core/widgets/others/rotated_widget.dart';
-import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/text_stroke.dart';
+import '../widgets/cup_button.dart';
+import '../widgets/rotated_widget.dart';
+import '../widgets/custom_svg.dart';
+import '../widgets/text_stroke.dart';
 import '../widgets/balloon_widget.dart';
 
 class WinPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class WinPage extends StatelessWidget {
           amount != 0 ? const Color(0xff02B4FE) : const Color(0xff5B000F),
       body: Stack(
         children: [
-          SvgWidget(
+          CustomSvg(
             amount != 0 ? 'assets/win2.svg' : 'assets/win3.svg',
             width: double.infinity,
             height: double.infinity,
@@ -76,15 +76,15 @@ class WinPage extends StatelessWidget {
                         borderColor: const Color(0xff02B4FE),
                       ),
                       const SizedBox(width: 30),
-                      const SvgWidget('assets/coin.svg'),
+                      const CustomSvg('assets/coin.svg'),
                     ],
                   ),
                 const SizedBox(height: 30),
-                CuperButton(
+                CupButton(
                   onPressed: () {
                     context.pop();
                   },
-                  child: const SvgWidget('assets/restart.svg'),
+                  child: const CustomSvg('assets/restart.svg'),
                 ),
                 const SizedBox(height: 25),
               ],
@@ -93,11 +93,11 @@ class WinPage extends StatelessWidget {
           Positioned(
             top: 20 + getTop(context),
             left: 45,
-            child: CuperButton(
+            child: CupButton(
               onPressed: () {
                 context.pop();
               },
-              child: const SvgWidget('assets/back.svg'),
+              child: const CustomSvg('assets/back.svg'),
             ),
           ),
         ],

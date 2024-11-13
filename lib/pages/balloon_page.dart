@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/utils.dart';
-import '../core/widgets/custom_scaffold.dart';
-import '../core/widgets/others/svg_widget.dart';
+import '../widgets/custom_scaffold.dart';
+import '../widgets/custom_svg.dart';
 import '../widgets/balloon_widget.dart';
 
 class BalloonPage extends StatefulWidget {
@@ -28,14 +28,14 @@ class _BalloonPageState extends State<BalloonPage> {
   double scale = 0.1;
   Timer? timer;
   bool loose = false;
-  final List<double> coefList = List.generate(21, (index) => (index + 1) * 0.5);
+  final List<double> coefList = List.generate(20, (index) => (index + 1) * 0.5);
 
   int getAmount() {
     return ((scale * winAmount) * coefList[currentIndex]).round();
   }
 
   void restart() {
-    logger('RESTART');
+    print('RESTART');
     currentIndex = 0;
     scale = 0.1;
     loose = false;
@@ -48,9 +48,9 @@ class _BalloonPageState extends State<BalloonPage> {
   }
 
   void onPressStart() {
-    logger('START');
+    print('START');
     double randomDouble = generateRandomValue();
-    logger('randomDouble = ${randomDouble.toStringAsFixed(2)}');
+    print('randomDouble = ${randomDouble.toStringAsFixed(2)}');
 
     timer = Timer.periodic(const Duration(milliseconds: 100), (timer) async {
       if (scale < 2.5) {
@@ -66,11 +66,11 @@ class _BalloonPageState extends State<BalloonPage> {
   }
 
   void handleLoose() async {
-    logger('LOOSE');
+    print('LOOSE');
     loose = true;
     timer?.cancel();
     int loss = getAmount();
-    logger('Loss: $loss');
+    print('Loss: $loss');
     coins -= loss;
     await saveInt('coins', coins);
     if (mounted) {
@@ -82,10 +82,10 @@ class _BalloonPageState extends State<BalloonPage> {
 
   void onPressEnd() async {
     if (loose) return;
-    logger('WIN');
+    print('WIN');
     timer?.cancel();
     int win = getAmount();
-    logger('Win: $win');
+    print('Win: $win');
     coins += win;
     await saveInt('coins', coins);
     if (mounted) {
@@ -193,7 +193,7 @@ class _BalloonPageState extends State<BalloonPage> {
               onTapDown: (_) => onPressStart(),
               onTapUp: (_) => onPressEnd(),
               onTapCancel: () => onPressEnd(),
-              child: const SvgWidget('assets/stop.svg'),
+              child: const CustomSvg('assets/stop.svg'),
             ),
           ),
           Center(

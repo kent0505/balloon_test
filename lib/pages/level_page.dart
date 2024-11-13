@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../core/widgets/cuper_button.dart';
-import '../core/widgets/custom_scaffold.dart';
-import '../core/widgets/others/svg_widget.dart';
+import '../widgets/cup_button.dart';
+import '../widgets/custom_scaffold.dart';
+import '../widgets/custom_svg.dart';
 
 class LevelPage extends StatelessWidget {
   const LevelPage({super.key});
@@ -15,25 +15,25 @@ class LevelPage extends StatelessWidget {
       body: Column(
         children: [
           const Spacer(),
-          CuperButton(
+          CupButton(
             onPressed: () {
               context.push('/home/level/balloon', extra: 1);
             },
-            child: const SvgWidget('assets/easy.svg'),
+            child: const CustomSvg('assets/easy.svg'),
           ),
           const SizedBox(height: 18),
-          CuperButton(
+          CupButton(
             onPressed: () {
               context.push('/home/level/balloon', extra: 2);
             },
-            child: const SvgWidget('assets/normal.svg'),
+            child: const CustomSvg('assets/normal.svg'),
           ),
           const SizedBox(height: 18),
-          CuperButton(
+          CupButton(
             onPressed: () {
               context.push('/home/level/balloon', extra: 3);
             },
-            child: const SvgWidget('assets/hard.svg'),
+            child: const CustomSvg('assets/hard.svg'),
           ),
           const SizedBox(height: 40),
         ],
