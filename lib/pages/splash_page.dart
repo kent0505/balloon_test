@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../blocs/coins/coins_bloc.dart';
 import '../core/utils.dart';
 import '../core/widgets/others/loading_widget.dart';
 import '../core/widgets/custom_scaffold.dart';
@@ -17,6 +19,7 @@ class _SplashPageState extends State<SplashPage> {
     await getData().then((value) {
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) {
+          context.read<CoinsBloc>().add(GetCoinsEvent());
           context.go('/home');
         }
       });

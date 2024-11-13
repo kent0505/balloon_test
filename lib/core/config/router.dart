@@ -6,6 +6,7 @@ import '../../pages/howto_page.dart';
 import '../../pages/level_page.dart';
 import '../../pages/settings_page.dart';
 import '../../pages/spin_page.dart';
+import '../../pages/spin_win_page.dart';
 import '../../pages/splash_page.dart';
 
 final routerConfig = GoRouter(
@@ -40,6 +41,14 @@ final routerConfig = GoRouter(
         GoRoute(
           path: 'spin',
           builder: (context, state) => const SpinPage(),
+          routes: [
+            GoRoute(
+              path: 'spinwin',
+              builder: (context, state) => SpinWinPage(
+                amount: state.extra as int,
+              ),
+            ),
+          ],
         ),
       ],
     ),

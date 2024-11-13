@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../blocs/coins/coins_bloc.dart';
 import '../utils.dart';
 import 'cuper_button.dart';
 import 'others/svg_widget.dart';
@@ -80,26 +82,42 @@ class CustomScaffold extends StatelessWidget {
                     Positioned(
                       top: 10,
                       left: 35,
-                      child: TextStroke(
-                        coins.toString(),
-                        strokeWidth: 3,
-                        borderColor: const Color(0xff02B4FE),
-                        fontSize: coins.toString().length >= 7 ? 14 : 18,
+                      child: BlocBuilder<CoinsBloc, CoinsState>(
+                        builder: (context, state) {
+                          if (state is CoinsLoadedState) {
+                            return TextStroke(
+                              state.coins.toString(),
+                              strokeWidth: 3,
+                              borderColor: const Color(0xff02B4FE),
+                              fontSize: coins.toString().length >= 7 ? 14 : 18,
+                            );
+                          }
+
+                          return Container();
+                        },
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            Positioned(
-              bottom: 20,
-              right: 63,
-              child: CuperButton(
-                onPressed: () {
-                  context.push('/home/spin');
-                },
-                child: const SvgWidget('assets/chest.svg'),
-              ),
+            BlocBuilder<CoinsBloc, CoinsState>(
+              builder: (context, state) {
+                if (state is CoinsLoadedState) {
+                  return Positioned(
+                    bottom: 20,
+                    right: 63,
+                    child: CuperButton(
+                      onPressed: () {
+                        context.push('/home/spin');
+                      },
+                      child: const SvgWidget('assets/chest.svg'),
+                    ),
+                  );
+                }
+
+                return Container();
+              },
             ),
           ],
           if (back)

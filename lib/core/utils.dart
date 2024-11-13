@@ -10,13 +10,13 @@ int lastSpin = 0;
 
 Future<void> getData() async {
   try {
-    final prefs = await SharedPreferences.getInstance();
-    // await prefs.remove('onboard');
-    // await prefs.clear();
-    coins = prefs.getInt('coins') ?? 0;
-    sound = prefs.getInt('sound') ?? 0;
-    music = prefs.getInt('music') ?? 0;
-    lastSpin = prefs.getInt('lastSpin') ?? 0;
+    await SharedPreferences.getInstance().then((prefs) async {
+      // await prefs.clear();
+      coins = prefs.getInt('coins') ?? 0;
+      sound = prefs.getInt('sound') ?? 0;
+      music = prefs.getInt('music') ?? 0;
+      lastSpin = prefs.getInt('lastSpin') ?? 0;
+    });
   } catch (e) {
     logger(e);
   }
@@ -24,23 +24,20 @@ Future<void> getData() async {
 
 Future<void> saveInt(String key, int value) async {
   try {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setInt(key, value);
+    await SharedPreferences.getInstance().then((prefs) {
+      prefs.setInt(key, value);
+    });
   } catch (e) {
     logger(e);
   }
 }
 
-int getCurrentTimestamp() {
+int getTimestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;
 }
 
 double getTop(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
-}
-
-double getBottom(BuildContext context) {
-  return MediaQuery.of(context).viewPadding.bottom;
 }
 
 void logger(Object message) {

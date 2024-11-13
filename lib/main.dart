@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/coins/coins_bloc.dart';
 import 'core/config/router.dart';
 import 'core/config/themes.dart';
 
@@ -18,19 +20,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      routerConfig: routerConfig,
+    precacheImage(const AssetImage('assets/images/cloud.png'), context);
+    precacheImage(const AssetImage('assets/images/win.png'), context);
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CoinsBloc()),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: theme,
+        routerConfig: routerConfig,
+      ),
     );
   }
 }
 
-// clouds
 // splash
 // balloon
-// spin
-// spin win page
-// win page
-// loose page
-// music
