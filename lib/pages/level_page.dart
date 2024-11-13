@@ -17,21 +17,21 @@ class LevelPage extends StatelessWidget {
           const Spacer(),
           CuperButton(
             onPressed: () {
-              context.push('/home/level/balloon');
+              context.push('/home/level/balloon', extra: 1);
             },
             child: const SvgWidget('assets/easy.svg'),
           ),
           const SizedBox(height: 18),
           CuperButton(
             onPressed: () {
-              context.push('/home/level/balloon');
+              context.push('/home/level/balloon', extra: 2);
             },
             child: const SvgWidget('assets/normal.svg'),
           ),
           const SizedBox(height: 18),
           CuperButton(
             onPressed: () {
-              context.push('/home/level/balloon');
+              context.push('/home/level/balloon', extra: 3);
             },
             child: const SvgWidget('assets/hard.svg'),
           ),

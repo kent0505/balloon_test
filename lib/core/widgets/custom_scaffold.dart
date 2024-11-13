@@ -103,7 +103,7 @@ class CustomScaffold extends StatelessWidget {
             ),
             BlocBuilder<CoinsBloc, CoinsState>(
               builder: (context, state) {
-                if (state is CoinsLoadedState) {
+                if (state is CoinsLoadedState && state.canSpin) {
                   return Positioned(
                     bottom: 20,
                     right: 63,

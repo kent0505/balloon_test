@@ -25,6 +25,7 @@ class TextStroke extends StatelessWidget {
         // Stroked text as border.
         Text(
           title,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: fontSize,
             fontFamily: fontFamily,
@@ -37,6 +38,7 @@ class TextStroke extends StatelessWidget {
         // Solid text as fill.
         Text(
           title,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: fontSize,
             fontFamily: fontFamily,

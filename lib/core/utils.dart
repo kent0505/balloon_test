@@ -40,6 +40,10 @@ double getTop(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
 }
 
+double getWidth(BuildContext context) {
+  return MediaQuery.of(context).size.width;
+}
+
 void logger(Object message) {
   try {
     developer.log(message.toString());

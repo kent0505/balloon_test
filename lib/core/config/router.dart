@@ -8,6 +8,7 @@ import '../../pages/settings_page.dart';
 import '../../pages/spin_page.dart';
 import '../../pages/spin_win_page.dart';
 import '../../pages/splash_page.dart';
+import '../../pages/win_page.dart';
 
 final routerConfig = GoRouter(
   initialLocation: '/',
@@ -30,7 +31,17 @@ final routerConfig = GoRouter(
           routes: [
             GoRoute(
               path: 'balloon',
-              builder: (context, state) => const BalloonPage(),
+              builder: (context, state) => BalloonPage(
+                level: state.extra as int,
+              ),
+              routes: [
+                GoRoute(
+                  path: 'win',
+                  builder: (context, state) => WinPage(
+                    amount: state.extra as int,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

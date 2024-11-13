@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../blocs/coins/coins_bloc.dart';
+import '../core/utils.dart';
 import '../core/widgets/cuper_button.dart';
 import '../core/widgets/custom_scaffold.dart';
 import '../core/widgets/others/svg_widget.dart';
@@ -17,7 +20,12 @@ class HomePage extends StatelessWidget {
           const Spacer(),
           CuperButton(
             onPressed: () {
-              context.push('/home/level');
+              context.push('/home/level').then((_) {
+                if (context.mounted) {
+                  logger('GET COINS');
+                  context.read<CoinsBloc>().add(GetCoinsEvent());
+                }
+              });
             },
             child: const SvgWidget('assets/play.svg'),
           ),
