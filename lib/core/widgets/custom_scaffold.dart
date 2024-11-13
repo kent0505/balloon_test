@@ -6,7 +6,7 @@ import '../../blocs/coins/coins_bloc.dart';
 import '../utils.dart';
 import 'cuper_button.dart';
 import 'others/svg_widget.dart';
-import 'texts/text_stroke.dart';
+import 'text_stroke.dart';
 
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({

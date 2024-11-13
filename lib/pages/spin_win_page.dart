@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../core/utils.dart';
 import '../core/widgets/cuper_button.dart';
 import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/texts/text_stroke.dart';
+import '../core/widgets/text_stroke.dart';
 
 class SpinWinPage extends StatelessWidget {
   const SpinWinPage({

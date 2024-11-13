@@ -5,7 +5,7 @@ import '../core/utils.dart';
 import '../core/widgets/cuper_button.dart';
 import '../core/widgets/others/rotated_widget.dart';
 import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/texts/text_stroke.dart';
+import '../core/widgets/text_stroke.dart';
 import '../widgets/balloon_widget.dart';
 
 class WinPage extends StatelessWidget {

@@ -6,7 +6,7 @@ import '../blocs/coins/coins_bloc.dart';
 import '../core/utils.dart';
 import '../core/widgets/others/rotated_widget.dart';
 import '../core/widgets/others/svg_widget.dart';
-import '../core/widgets/texts/text_widget.dart';
+import '../core/widgets/text_widget.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -28,7 +28,6 @@ class _SplashPageState extends State<SplashPage>
           context.read<CoinsBloc>().add(GetCoinsEvent());
           context.go('/home');
         }
-        // logger('GOING TO HOME');
       });
     });
   }
@@ -37,7 +36,7 @@ class _SplashPageState extends State<SplashPage>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2200),
+      duration: const Duration(milliseconds: 2400),
       vsync: this,
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller)

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../core/widgets/custom_scaffold.dart';
-import '../core/widgets/texts/text_widget.dart';
+import '../core/widgets/text_widget.dart';
 
 class HowtoPage extends StatelessWidget {
   const HowtoPage({super.key});
