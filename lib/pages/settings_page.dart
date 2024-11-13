@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../core/utils.dart';
 import '../core/widgets/cuper_button.dart';
-import '../core/widgets/custom_scaffold.dart';
 import '../core/widgets/others/svg_widget.dart';
 import '../core/widgets/texts/text_widget.dart';
 
@@ -64,86 +64,143 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      back: true,
-      body: Column(
+    return Scaffold(
+      backgroundColor: const Color(0xff02B4FE),
+      body: Stack(
         children: [
-          SizedBox(height: 16 + getTop(context)),
-          const TextWidget(
-            'Settings',
-            fontSize: 44,
+          Positioned(
+            top: 20,
+            left: 2,
+            child: Image.asset(
+              'assets/images/cloud.png',
+              height: 170,
+            ),
           ),
-          const SizedBox(height: 40),
-          const TextWidget(
-            'Sounds',
-            fontSize: 22,
+          Positioned(
+            top: 35,
+            right: 0,
+            child: Transform.scale(
+              scaleX: -1,
+              child: Image.asset(
+                'assets/images/cloud.png',
+                height: 170,
+              ),
+            ),
           ),
-          const SizedBox(height: 6),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CuperButton(
-                onPressed: () {
-                  onSound(false);
-                },
-                child: const SvgWidget('assets/minus.svg'),
+          Positioned(
+            bottom: 117,
+            left: 90,
+            child: Transform.scale(
+              scaleX: -1,
+              child: Image.asset(
+                'assets/images/cloud.png',
+                height: 74,
               ),
-              const SizedBox(width: 20),
-              _Indicator(active: soundIndex >= 1),
-              const SizedBox(width: 18),
-              _Indicator(active: soundIndex >= 2),
-              const SizedBox(width: 18),
-              _Indicator(active: soundIndex >= 3),
-              const SizedBox(width: 18),
-              _Indicator(active: soundIndex >= 4),
-              const SizedBox(width: 18),
-              _Indicator(active: soundIndex >= 5),
-              const SizedBox(width: 18),
-              _Indicator(active: soundIndex >= 6),
-              const SizedBox(width: 20),
-              CuperButton(
-                onPressed: () {
-                  onSound(true);
-                },
-                child: const SvgWidget('assets/plus.svg'),
-              ),
-            ],
+            ),
           ),
-          const SizedBox(height: 40),
-          const TextWidget(
-            'Music',
-            fontSize: 22,
+          Positioned(
+            top: 140,
+            right: 58,
+            child: Transform.scale(
+              scaleX: -1,
+              child: Image.asset(
+                'assets/images/cloud.png',
+                height: 74,
+              ),
+            ),
           ),
-          const SizedBox(height: 6),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CuperButton(
-                onPressed: () {
-                  onMusic(false);
-                },
-                child: const SvgWidget('assets/minus.svg'),
-              ),
-              const SizedBox(width: 20),
-              _Indicator(active: musicIndex >= 1),
-              const SizedBox(width: 18),
-              _Indicator(active: musicIndex >= 2),
-              const SizedBox(width: 18),
-              _Indicator(active: musicIndex >= 3),
-              const SizedBox(width: 18),
-              _Indicator(active: musicIndex >= 4),
-              const SizedBox(width: 18),
-              _Indicator(active: musicIndex >= 5),
-              const SizedBox(width: 18),
-              _Indicator(active: musicIndex >= 6),
-              const SizedBox(width: 20),
-              CuperButton(
-                onPressed: () {
-                  onMusic(true);
-                },
-                child: const SvgWidget('assets/plus.svg'),
-              ),
-            ],
+          Center(
+            child: Column(
+              children: [
+                SizedBox(height: 16 + getTop(context)),
+                const TextWidget(
+                  'Settings',
+                  fontSize: 44,
+                ),
+                const SizedBox(height: 40),
+                const TextWidget(
+                  'Sounds',
+                  fontSize: 22,
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CuperButton(
+                      onPressed: () {
+                        onSound(false);
+                      },
+                      child: const SvgWidget('assets/minus.svg'),
+                    ),
+                    const SizedBox(width: 20),
+                    _Indicator(active: soundIndex >= 1),
+                    const SizedBox(width: 18),
+                    _Indicator(active: soundIndex >= 2),
+                    const SizedBox(width: 18),
+                    _Indicator(active: soundIndex >= 3),
+                    const SizedBox(width: 18),
+                    _Indicator(active: soundIndex >= 4),
+                    const SizedBox(width: 18),
+                    _Indicator(active: soundIndex >= 5),
+                    const SizedBox(width: 18),
+                    _Indicator(active: soundIndex >= 6),
+                    const SizedBox(width: 20),
+                    CuperButton(
+                      onPressed: () {
+                        onSound(true);
+                      },
+                      child: const SvgWidget('assets/plus.svg'),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 40),
+                const TextWidget(
+                  'Music',
+                  fontSize: 22,
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CuperButton(
+                      onPressed: () {
+                        onMusic(false);
+                      },
+                      child: const SvgWidget('assets/minus.svg'),
+                    ),
+                    const SizedBox(width: 20),
+                    _Indicator(active: musicIndex >= 1),
+                    const SizedBox(width: 18),
+                    _Indicator(active: musicIndex >= 2),
+                    const SizedBox(width: 18),
+                    _Indicator(active: musicIndex >= 3),
+                    const SizedBox(width: 18),
+                    _Indicator(active: musicIndex >= 4),
+                    const SizedBox(width: 18),
+                    _Indicator(active: musicIndex >= 5),
+                    const SizedBox(width: 18),
+                    _Indicator(active: musicIndex >= 6),
+                    const SizedBox(width: 20),
+                    CuperButton(
+                      onPressed: () {
+                        onMusic(true);
+                      },
+                      child: const SvgWidget('assets/plus.svg'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 20 + getTop(context),
+            left: 45,
+            child: CuperButton(
+              onPressed: () {
+                context.pop();
+              },
+              child: const SvgWidget('assets/back.svg'),
+            ),
           ),
         ],
       ),

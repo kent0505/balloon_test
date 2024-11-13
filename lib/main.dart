@@ -22,7 +22,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     precacheImage(const AssetImage('assets/images/cloud.png'), context);
     precacheImage(const AssetImage('assets/images/win.png'), context);
-    precacheImage(const AssetImage('assets/images/balloon.png'), context);
+    precacheImage(const AssetImage('assets/images/balloon1.png'), context);
+    precacheImage(const AssetImage('assets/images/balloon2.png'), context);
+    precacheImage(const AssetImage('assets/images/balloon3.png'), context);
+    precacheImage(const AssetImage('assets/images/balloon4.png'), context);
+    precacheImage(const AssetImage('assets/images/balloon5.png'), context);
+    precacheImage(const AssetImage('assets/images/balloon6.png'), context);
 
     return MultiBlocProvider(
       providers: [
@@ -38,4 +43,4 @@ class MyApp extends StatelessWidget {
 }
 
 // splash
-// balloon
+// clouds

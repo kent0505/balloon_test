@@ -32,7 +32,7 @@ class BalloonWidget extends StatelessWidget {
               child: RotatedWidget(
                 degree: 80,
                 child: Image.asset(
-                  'assets/images/balloon.png',
+                  'assets/images/balloon1.png',
                   width: 126,
                 ),
               ),
